@@ -21,6 +21,8 @@ names(subject)='individual'
 # 4. Appropriately labels the data set with descriptive variable names. 
 features=read.table('./UCI HAR Dataset/features.txt')
 names(x)=features[,2]
+names(x)=gsub('-','_',names(x))
+names(x)=gsub('[()]','',names(x))
 
 # 2. Extract only the measurements on the mean and standard deviation for each measurement. 
 indexes=grep('mean|std',names(x),ignore.case=T)
@@ -29,8 +31,7 @@ x_sub=x[,indexes]
 # 3. Use descriptive activity names to name the activities in the data set
 activity=read.table('./UCI HAR Dataset/activity_labels.txt',stringsAsFactors = F)
 activity_label=activity[y[,1],2]
-names(x_sub)=gsub('-','_',names(x_sub))
-names(x_sub)=gsub('[()]','',names(x_sub))
+
 
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
