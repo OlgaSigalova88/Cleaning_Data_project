@@ -2,7 +2,7 @@ url='https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20
 download.file(url=url,destfile='project_data.zip',method='curl' )
 unzip('project_data.zip')
 
-# 0. load training set
+# 0. load training and test set
 y_train=read.table('./UCI HAR Dataset/train/y_train.txt')
 X_train=read.table('./UCI HAR Dataset/train/X_train.txt')
 subject_train=read.table('./UCI HAR Dataset/train/subject_train.txt')
